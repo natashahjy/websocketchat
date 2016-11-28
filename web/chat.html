@@ -12,7 +12,7 @@
     var ws;
     $(document).ready(function(){
         $("#register").click(function() {
-            ws = new WebSocket("ws://localhost:8080/chat/"+$('#id').val());
+            ws = new WebSocket("ws://localhost:8080/chat/"+$('#id').val().fontcolor("blue"));
             ws.onmessage = function(evt)
             {
                 var msg = evt.data;
