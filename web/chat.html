@@ -12,6 +12,7 @@
     var ws;
     $(document).ready(function(){
         $("#register").click(function() {
+            $('#user').append($('#id').val()+'\n');
             ws = new WebSocket("ws://localhost:8080/chat/"+$('#id').val());
             ws.onmessage = function(evt)
             {
@@ -19,7 +20,6 @@
                 $('#chat').append(msg + '\n');
             };
         });
-
 
         $("#send").click(function() {
             var txt = $('#message').val().fontcolor('red')
@@ -36,6 +36,9 @@
     </textarea><br>
     <input type="text" id="message" name="id" placeholder="Enter your message" /> <br>
     <input type="button" id="send" value="Send" /> <br>
+    <textarea id="user" placeholder="Connected users" rows="10" cols="50" readonly>
+        ...
+    </textarea>
 </form>
 </body>
 </html>
