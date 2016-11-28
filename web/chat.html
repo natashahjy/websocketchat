@@ -12,7 +12,7 @@
     var ws;
     $(document).ready(function(){
         $("#register").click(function() {
-            ws = new WebSocket("ws://localhost:8080/chat/"+$('#id').val().fontcolor("blue"));
+            ws = new WebSocket("ws://localhost:8080/chat/"+$('#id').val());
             ws.onmessage = function(evt)
             {
                 var msg = evt.data;
@@ -22,11 +22,9 @@
 
 
         $("#send").click(function() {
-            var txt = $('#message').val()
+            var txt = $('#message').val().fontcolor('red')
             ws.send(txt);
         });
-
-        $("#connected").
     });
 </script>
 <body>
@@ -36,9 +34,6 @@
     <textarea id="chat" placeholder="Chat message appears here" rows="10" cols="50" readonly>
         ...
     </textarea><br>
-    <textarea id="connected" placeholder="All connected users" rows="10"cols="50" readonly>
-
-    </textarea>
     <input type="text" id="message" name="id" placeholder="Enter your message" /> <br>
     <input type="button" id="send" value="Send" /> <br>
 </form>
